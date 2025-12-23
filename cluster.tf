@@ -1,4 +1,4 @@
-resource "kind_cluster" "default" {
+resource "kind_cluster" "project-cluster" {
     name = "${var.cluster_name}--${var.branch}"
     node_image = var.node_image
     kind_config = <<KIONF
