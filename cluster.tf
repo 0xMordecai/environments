@@ -20,5 +20,9 @@ resource "kind_cluster" "default" {
                 host_port      = 443
             }
         }
+
+        node {
+            role = "worker"
+        }
     }
 }
