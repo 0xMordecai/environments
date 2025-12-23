@@ -4,9 +4,9 @@
 
 ## Requirements
 
-Docker instaled in your machine
+Docker instaled in your machine/Vm
 
-KinD [Kubernetes in Docker] version 0.30.0 installed in your machine
+KinD [Kubernetes in Docker] version 0.30.0 installed in your machine/Vm
 
-terraform version 1.13.4 installed in your machine
+terraform version 1.13.4 installed in your machine/Vm
 
