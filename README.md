@@ -6,3 +6,7 @@
 
 Docker instaled in your machine
 
+KinD [Kubernetes in Docker] version 0.30.0 installed in your machine
+
+terraform
+
