@@ -2,10 +2,10 @@
 #   and Argo CD app that point to the corresponding namespace.yaml and install.yaml files
 #   within the manifests/argocd directory
 
-data "kubectl_file_document" "namespace" {
+data "kubectl_file_documents" "namespace" {
     content = file("../manifests/argo-cd/namespace.yaml")
 }
-data "kubectl_file_document" "argocd" {
+data "kubectl_file_documents" "argocd" {
     content = file("../manifests/argo-cd/install.yaml")
 }
 
