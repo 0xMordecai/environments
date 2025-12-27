@@ -8,3 +8,9 @@ data "kubectl_file_document" "namespace" {
 data "kubectl_file_document" "argocd" {
     content = file("../manifests/argo-cd/install.yaml")
 }
+
+resource "kubectl_manifest" "namespace" {
+    for_each    = data.kubectl_file_documents.namespace.manifests
+    yaml_body   = each.value
+    override_namespace  = "argocd"
+}
