@@ -1,0 +1,46 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapi-deployment
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapi
+  template:
+    metadata:
+      labels:
+        app: myapi
+    spec:
+      containers:
+        - name: myapi
+          imagePullPolicy: Always
+          image: kings5layer/myapi:0.0.1
+
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "200m"
+
+          livenessProbe:
+            httpGet:
+              path: /health/liveness
+              port: 8888
+            failureThreshold: 3
+            initialDelaySeconds: 3
+            periodSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /health/readiness
+              port: 8888
+            failureThreshold: 3
+            initialDelaySeconds: 3
+            periodSeconds: 3
+          ports:
+            - containerPort: 8888
+              name: myapi-svc
