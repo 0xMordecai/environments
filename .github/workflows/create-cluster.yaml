@@ -1,1 +1,8 @@
 name: Create kubernetes Cluster
+on: push
+jobs:
+  test-terraform-deployment:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./terraform
