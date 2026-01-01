@@ -1,0 +1,19 @@
+name: Create kubernetes Cluster
+on: push
+jobs:
+  test-terraform-deployment:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./terraform
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Terraform
+      id: install-terraform
+      run: wget -O terraform.zip https://releases.hashicorp.com/terraform/1.14.3/terraform_1.14.3_linux_amd64.zip && unzip terraform.zip && chmod +x terraform && sudo mv terraform /usr/local/bin
+    - name: install KinD(kubernetes in docker)
+      id: install-kind
+      run: curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64 && chmod +x ./kind && sudo mv ./kind /usr/local/bin/kind
+    - name: check Docker Version
+      id: check-docker-version
+      run: docker version
