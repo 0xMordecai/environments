@@ -1,5 +1,5 @@
 data "kubectl_file_documents" "apps" {
-    content = file("../manifests/argocd/apps.yaml")
+    content = file("../manifests/argo-cd/apps.yaml")
 }
 resource "kubectl_manifest" "apps" {
     depends_on = [
