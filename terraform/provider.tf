@@ -12,6 +12,4 @@ terraform {
 }
 
 provider "kind" {}
-provider "kubectl" {
-  
-}
+provider "kubectl" {}
