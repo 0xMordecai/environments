@@ -1,6 +1,6 @@
 resource "kind_cluster" "default" {
     name = "${var.cluster_name}--${var.branch}"
-    node_image = var.node_image
+    # node_image = var.node_image
     wait_for_ready = true
     kind_config {
         kind        = "Cluster"
@@ -8,9 +8,7 @@ resource "kind_cluster" "default" {
 
         node {
             role = "control-plane"
-            kubeadm_config_patches = [
-                "kind: InitConfiguration\nnodeRegistration:\n  kubeletExtraArgs:\n    node-labels: \"ingress-ready=true\"\n"
-            ]
+            kubeadm_config_patches = []
             extra_port_mappings {
                 container_port = 80
                 host_port      = 80

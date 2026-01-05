@@ -13,5 +13,6 @@ variable "cluster_name" {
 variable "node_image" {
   description = "node image"
   type = string
-  default = "kindest/node:v1.27.1"
+  # default = "kindest/node:v1.27.1"
+  default = "kindest/node:v1.18.20"
 }
