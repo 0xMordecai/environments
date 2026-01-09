@@ -17,3 +17,6 @@ jobs:
     - name: check Docker Version
       id: check-docker-version
       run: docker version
+    - name: Apply Terraform
+      id: apply-terraform
+      run: terraform init && terraform apply -auto-approve -var="branch=${GITHUB_REF##*/}"
