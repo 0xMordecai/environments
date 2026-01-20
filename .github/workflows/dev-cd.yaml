@@ -1,0 +1,14 @@
+name: Dev Continuous Delivery Workflow 
+on:
+  push:
+    branches: [ dev ]
+jobs:
+  test-environment-infrastructure:
+    name: Create Environment 
+    uses: ./.github/workflows/create-cluster.yaml
+    secrets: inherit
+  raise-pull-request:
+    name: Raise Pull Request
+    needs: [test-environment-infrastructure]
+    uses: ./.github/workflows/raise-pr.yml
+    secrets: inherit

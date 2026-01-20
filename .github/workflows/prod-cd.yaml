@@ -1,0 +1,9 @@
+name: Dev Continuous Delivery Workflow 
+on:
+  push:
+    branches: [ main ]
+jobs:
+  test-environment-infrastructure:
+    name: Create Environment 
+    uses: ./.github/workflows/create-cluster.yaml
+    secrets: inherit

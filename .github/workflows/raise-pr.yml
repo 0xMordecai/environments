@@ -1,4 +1,5 @@
 name: Raise Pull Request
+
 on: [workflow_call]
 jobs:
   raise-pull-request:
@@ -12,5 +13,5 @@ jobs:
         id: pull-request
         uses: repo-sync/pull-request@v2
         with:
-          destination_branch: prod
+          destination_branch: main
           github_token: ${{secrets.GH_TOKEN}}
