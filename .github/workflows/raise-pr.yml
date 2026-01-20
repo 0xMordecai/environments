@@ -1,2 +1,8 @@
 name: Raise Pull Request
 on: [workflow_call]
+jobs:
+  raise-pull-request:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
