@@ -1,7 +1,7 @@
 name: Dev Continuous Delivery Workflow 
 on:
   push:
-    branches: [ dev ]
+    branches: [ main ]
 jobs:
   test-environment-infrastructure:
     name: Create Environment 
