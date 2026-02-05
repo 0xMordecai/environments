@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapi-deployment
+  name: myapi
 
 spec:
   replicas: 1
@@ -44,3 +44,15 @@ spec:
           ports:
             - containerPort: 8888
               name: myapi-svc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapi
+spec:
+  selector:
+    name: myapi
+  ports:
+    - protocol: TCP
+      port: 8888
+      targetPort: 8888
